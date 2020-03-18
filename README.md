@@ -1,4 +1,4 @@
-# covid-19
+# Corona (Covid-19) Viruses Monitoring
 
 ## Project setup
 ```
