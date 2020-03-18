@@ -13,7 +13,14 @@ export default new Vuex.Store({
   mutations: {
     SET_WORLD_TOTAL_STATUS(state, payload) {
       state.world_total_status = payload
-      state.taken_at = payload.statistic_taken_at
+      let dateNow = new Date()
+      let dateServer = new Date(payload.statistic_taken_at)
+      dateNow = dateNow.setHours(dateServer.getHours() + ( dateNow.getHours() - dateServer.getHours() ))
+      let date = payload.statistic_taken_at = new Date(dateNow)
+      let month = date.getMonth()
+      month += 1
+      if (month < 10) month = '0'+month
+      state.taken_at = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getDate() + '-' + month + '-' + date.getFullYear()
     },
     SET_CASES_BY_COUNTRY(state, payload) {
       state.cases_by_country = payload

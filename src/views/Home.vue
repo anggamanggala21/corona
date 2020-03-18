@@ -4,14 +4,17 @@
       <div class="mb-5">
         <h1 class="font-weight-bold title">Covid-19 (Corona) Viruses Update</h1>
         <div class="d-block d-md-none text-center">Last Update : 
-          <font v-if="cases_by_country.statistic_taken_at">{{ cases_by_country.statistic_taken_at }}</font>
+          <font v-if="taken_at">{{ taken_at }}</font>
           <font v-else style="background: rgba(0,0,0,0.3); padding: 0px 80px" class="ml-2"></font>
         </div>
       </div>
       <div>
-        <div class="d-flex justify-content-between align-items-end mb-2 mb-md-4">
+        <div class="d-flex justify-content-between align-items-start mb-2 mb-md-3">
           <h2 class="sub-title font-weight-bold">World Status</h2>
-          <p class="d-none d-md-block">Last Update : {{ taken_at }}</p>
+          <div class="d-none d-md-block">Last Update : 
+            <font v-if="taken_at">{{ taken_at }}</font>
+            <font v-else style="background: rgba(0,0,0,0.3); padding: 0px 80px" class="ml-2"></font>
+          </div>
         </div>
         <carousel :margin="20" :nav="false" :items="3" :autoWidth="true" style="height: 20vh">
           <b-card class="text-white" style="width: 300px; background: #34495e; border: none">
@@ -42,9 +45,12 @@
         </carousel>
       </div>
       <div class="mt-5">
-        <div class="d-block d-md-flex justify-content-between align-items-end mb-3 mb-md-4">
+        <div class="d-block d-md-flex justify-content-between align-items-start mb-3 mb-md-3">
           <h2 class="sub-title font-weight-bold">Cases By Country</h2>
-          <p class="d-none d-md-block">Last Update : {{ cases_by_country.statistic_taken_at }}</p>
+          <div class="d-none d-md-block">Last Update : 
+            <font v-if="taken_at">{{ taken_at }}</font>
+            <font v-else style="background: rgba(0,0,0,0.3); padding: 0px 80px" class="ml-2"></font>
+          </div>
         </div>
         <div>
           <b-input type="search" v-model="search" placeholder="Search country name" class="mb-3"></b-input>
