@@ -55,7 +55,10 @@
         <div>
           <b-input type="search" v-model="search" placeholder="Search country name" class="mb-3"></b-input>
           <b-table class="rounded" style="max-height: 80vh" sticky-header head-variant="light" responsive striped hover borderless dark :fields="fields" :items="filteredList" :busy="isBusy">
-            <template v-slot:table-busy>
+            <template v-slot:cell(index)="data">
+              {{ data.index + 1 }}
+            </template>
+            <template v-slot:table-busy>              
               <div class="text-white my-4">
                 <b-spinner class="align-middle mx-3"></b-spinner>
                 <strong>Loading...</strong>
@@ -115,7 +118,8 @@ export default {
   name: 'Home',
   data () {
     return {
-      fields: [
+      fields: [        
+        { key: 'index', label: 'No' },
         { key: 'country_name', sortable: true },
         { key: 'cases' },
         { key: 'deaths' },
