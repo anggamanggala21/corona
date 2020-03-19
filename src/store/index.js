@@ -19,8 +19,12 @@ export default new Vuex.Store({
       let date = payload.statistic_taken_at = new Date(dateNow)
       let month = date.getMonth()
       month += 1
+      let hour = date.getHours()
+      let minutes = date.getMinutes()
       if (month < 10) month = '0'+month
-      state.taken_at = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getDate() + '-' + month + '-' + date.getFullYear()
+      if (hour < 10) hour = '0'+hour
+      if (minutes < 10) minutes = '0'+minutes
+      state.taken_at = hour + ':' + minutes + ' ' + date.getDate() + '-' + month + '-' + date.getFullYear()
     },
     SET_CASES_BY_COUNTRY(state, payload) {
       state.cases_by_country = payload
