@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.corona.anggamanggala",
+                 "sha256_cert_fingerprints": ["0E:3E:18:4B:3D:48:BA:6E:C9:24:3F:0A:77:67:8B:AC:1D:66:F6:B9:EF:E4:8A:A9:17:9B:70:28:B7:78:B1:B0"] }
+}]

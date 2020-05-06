@@ -66,7 +66,20 @@ export default new Vuex.Store({
           reject(err)
         })
       })
-    }
+    },
+    getHistoryCases() {
+      return new Promise((resolve, reject) => {
+        axios.get('https://icebob.info/covid19/timeseries.json')
+        .then((res) => {        
+          // commit('SET_CASES_BY_COUNTRY', res.data)
+          // resolve(res.data)
+          console.log(res.data)
+        })
+        .catch((err) => {
+          reject(err)
+        })
+      })
+    },
   },
   modules: {
   }

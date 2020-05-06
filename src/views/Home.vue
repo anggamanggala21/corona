@@ -101,7 +101,8 @@
         </div>        
         <div style="clear: both">
           <br><br>
-          <h4 class="font-weight-bold">Corona Viruses Monitoring</h4>
+          <h4 class="font-weight-bold">Corona Viruses Monitoring</h4>          
+
         </div>
       </div>
     </b-container>
@@ -160,9 +161,10 @@ export default {
     .then(() => {
       this.isBusy = false
     })
+    this.getHistoryCases()
   },
   methods: {
-    ...mapActions(['getWorldTotalStatus', 'getCasesByCountry'])
+    ...mapActions(['getWorldTotalStatus', 'getCasesByCountry', 'getHistoryCases'])
   }
 }
 </script>
